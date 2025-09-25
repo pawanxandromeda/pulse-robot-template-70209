@@ -7,11 +7,11 @@ const ImageShowcaseSection = () => {
       <div className="container px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="max-w-3xl mx-auto text-center mb-8 sm:mb-12 animate-on-scroll">
           <h2 className="text-3xl sm:text-4xl font-display font-bold tracking-tight text-gray-900 mb-3 sm:mb-4">
-            Experience the Future Today
+            See Your Virtual Agent in Action
           </h2>
           <p className="text-base sm:text-lg text-gray-600">
-            Our cutting-edge humanoid robot is designed to transform how we interact 
-            with technology in everyday environments.
+            Watch how our AI-powered avatars engage with prospects, qualify leads, 
+            and schedule visits while you focus on closing deals.
           </p>
         </div>
         
@@ -19,16 +19,15 @@ const ImageShowcaseSection = () => {
           <div className="w-full">
             <img 
               src="/lovable-uploads/c3d5522b-6886-4b75-8ffc-d020016bb9c2.png" 
-              alt="Advanced humanoid robot with orange and white design" 
+              alt="Virtual real estate sales agent avatar interface" 
               className="w-full h-auto object-cover"
             />
           </div>
           <div className="bg-white p-4 sm:p-8">
-            <h3 className="text-xl sm:text-2xl font-display font-semibold mb-3 sm:mb-4">Next Generation Robotics</h3>
+            <h3 className="text-xl sm:text-2xl font-display font-semibold mb-3 sm:mb-4">Real Estate Sales Automation</h3>
             <p className="text-gray-700 text-sm sm:text-base">
-              Built with precision engineering and sophisticated AI, our robots seamlessly 
-              integrate into various environments, from homes to hospitals, providing 
-              assistance and enriching human experiences.
+              Our virtual sales agents work around the clock to engage prospects, answer questions, 
+              schedule property visits, and integrate with your existing CRM to ensure no lead falls through the cracks.
             </p>
           </div>
         </div>

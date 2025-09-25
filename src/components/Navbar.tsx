@@ -52,11 +52,11 @@ const Navbar = () => {
             e.preventDefault();
             scrollToTop();
           }}
-          aria-label="Pulse Robot"
+          aria-label="Virtual Sales Agents"
         >
           <img 
             src="/logo.svg" 
-            alt="Pulse Robot Logo" 
+            alt="Virtual Sales Agents Logo" 
             className="h-7 sm:h-8" 
           />
         </a>
@@ -73,8 +73,8 @@ const Navbar = () => {
           >
             Home
           </a>
-          <a href="#features" className="nav-link">About</a>
-          <a href="#details" className="nav-link">Contact</a>
+          <a href="#features" className="nav-link">Features</a>
+          <a href="#details" className="nav-link">Pricing</a>
         </nav>
 
         {/* Mobile menu button - increased touch target */}
@@ -113,7 +113,7 @@ const Navbar = () => {
               document.body.style.overflow = '';
             }}
           >
-            About
+            Features
           </a>
           <a 
             href="#details" 
@@ -123,7 +123,7 @@ const Navbar = () => {
               document.body.style.overflow = '';
             }}
           >
-            Contact
+            Pricing
           </a>
         </nav>
       </div>
