@@ -26,11 +26,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 220 90% 56%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 24 95% 53%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 39 100% 96%;
+    --secondary-foreground: 24 45% 15%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -43,7 +43,7 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 220 90% 56%;
+    --ring: 24 95% 53%;
 
     --radius: 0.75rem;
 
@@ -53,8 +53,14 @@
     --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     
     /* Premium gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(220 100% 70%));
-    --gradient-subtle: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    --gradient-primary: linear-gradient(135deg, hsl(24 95% 53%), hsl(39 100% 77%));
+    --gradient-subtle: linear-gradient(135deg, rgba(249,115,22,0.1), rgba(249,115,22,0.05));
+    
+    /* Real Estate Theme */
+    --real-estate-primary: 24 95% 53%;
+    --real-estate-secondary: 39 100% 77%;
+    --real-estate-accent: 22 90% 57%;
+    --real-estate-gold: 45 100% 70%;
     
     /* Apple-like shadows */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -122,7 +128,7 @@
   }
 
   body {
-    @apply bg-white text-black font-sans antialiased;
+    @apply bg-background text-foreground font-sans antialiased;
   }
 
   /* Smooth scrolling */
@@ -186,11 +192,15 @@
 
   /* Button Styles */
   .btn-primary {
-    @apply bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-medium px-6 py-2.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98];
+    @apply bg-gradient-to-r from-pulse-500 to-pulse-600 hover:from-pulse-600 hover:to-pulse-700 text-white font-medium px-6 py-2.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98];
   }
 
   .btn-secondary {
-    @apply bg-white/60 backdrop-blur-sm border border-white/30 hover:bg-white/80 text-gray-700 font-medium px-6 py-2.5 rounded-xl transition-all duration-300;
+    @apply bg-white/60 backdrop-blur-sm border border-white/30 hover:bg-white/80 text-pulse-700 font-medium px-6 py-2.5 rounded-xl transition-all duration-300;
+  }
+
+  .btn-real-estate {
+    @apply bg-gradient-to-r from-pulse-500 to-pulse-600 hover:from-pulse-600 hover:to-pulse-700 text-white font-semibold px-8 py-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98];
   }
 
   .btn-ghost {
@@ -199,11 +209,20 @@
 
   /* Navigation */
   .nav-link {
-    @apply relative text-gray-600 hover:text-blue-600 px-4 py-2 rounded-lg transition-all duration-200 hover:bg-white/50;
+    @apply relative text-muted-foreground hover:text-primary px-4 py-2 rounded-lg transition-all duration-200 hover:bg-accent/50;
   }
 
   .nav-link-active {
-    @apply text-blue-600 bg-blue-50/80 backdrop-blur-sm;
+    @apply text-primary bg-accent backdrop-blur-sm;
+  }
+
+  /* Professional Real Estate Cards */
+  .real-estate-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-card/90 hover:-translate-y-1;
+  }
+
+  .property-card {
+    @apply bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-xl rounded-3xl border border-border/20 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-[1.02];
   }
 
   /* Layout */

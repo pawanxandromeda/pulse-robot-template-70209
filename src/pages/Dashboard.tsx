@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { BarChart3, Users, Building, Calendar, MessageSquare, TrendingUp, ArrowUpRight, Eye, Phone, Mail } from "lucide-react";
+import { BarChart3, Users, Building, Calendar, MessageSquare, TrendingUp, ArrowUpRight, Eye, Phone, Mail, DollarSign, Target, Clock, Award } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/contexts/AuthContext";
@@ -13,33 +13,37 @@ const Dashboard = () => {
       title: "Active Leads",
       value: "127",
       change: "+12%",
-      changeType: "increase",
+      changeType: "increase" as const,
       icon: Users,
-      color: "from-blue-500 to-blue-600"
+      color: "from-pulse-500 to-pulse-600",
+      description: "Quality prospects this month"
     },
     {
       title: "Properties Listed",
       value: "34",
       change: "+3",
-      changeType: "increase",
+      changeType: "increase" as const,
       icon: Building,
-      color: "from-green-500 to-green-600"
+      color: "from-emerald-500 to-emerald-600",
+      description: "Available properties"
     },
     {
-      title: "Scheduled Visits",
-      value: "18",
-      change: "+5",
-      changeType: "increase",
-      icon: Calendar,
-      color: "from-purple-500 to-purple-600"
+      title: "Revenue Generated",
+      value: "$284K",
+      change: "+18%",
+      changeType: "increase" as const,
+      icon: DollarSign,
+      color: "from-green-500 to-green-600",
+      description: "Commission this quarter"
     },
     {
-      title: "Conversations",
-      value: "89",
-      change: "+24%",
-      changeType: "increase",
-      icon: MessageSquare,
-      color: "from-orange-500 to-orange-600"
+      title: "Conversion Rate",
+      value: "34%",
+      change: "+5%",
+      changeType: "increase" as const,
+      icon: Target,
+      color: "from-purple-500 to-purple-600",
+      description: "Lead to sale conversion"
     }
   ];
 
@@ -66,8 +70,7 @@ const Dashboard = () => {
       y: 0,
       opacity: 1,
       transition: {
-        type: "spring",
-        stiffness: 100
+        duration: 0.5
       }
     }
   };
@@ -80,25 +83,36 @@ const Dashboard = () => {
       className="p-6 space-y-6"
     >
       {/* Welcome Section */}
-      <motion.div variants={itemVariants} className="premium-card p-6">
+      <motion.div variants={itemVariants} className="real-estate-card p-8">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">
+            <h1 className="text-4xl font-bold text-foreground mb-2">
               Welcome back, {user?.name?.split(' ')[0]} 👋
             </h1>
-            <p className="text-gray-600 mt-2">
-              Here's what's happening with your virtual sales agents today
+            <p className="text-muted-foreground text-lg">
+              Your AI-powered real estate empire is thriving
             </p>
+            <div className="flex items-center gap-4 mt-4">
+              <div className="flex items-center gap-2">
+                <Award className="w-5 h-5 text-pulse-500" />
+                <span className="text-sm font-medium text-foreground">Top Performer</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Clock className="w-5 h-5 text-pulse-500" />
+                <span className="text-sm text-muted-foreground">Online now</span>
+              </div>
+            </div>
           </div>
           <div className="text-right">
-            <p className="text-sm text-gray-500">Today</p>
-            <p className="text-2xl font-bold text-gray-900">
+            <p className="text-sm text-muted-foreground">Today</p>
+            <p className="text-3xl font-bold text-foreground">
               {new Date().toLocaleDateString('en-US', { 
                 weekday: 'short', 
                 month: 'short', 
                 day: 'numeric' 
               })}
             </p>
+            <p className="text-sm text-pulse-500 font-medium">Active Dashboard</p>
           </div>
         </div>
       </motion.div>
@@ -112,28 +126,29 @@ const Dashboard = () => {
           const Icon = stat.icon;
           return (
             <motion.div key={index} variants={itemVariants}>
-              <Card className="stat-card group cursor-pointer">
-                <CardContent className="p-6">
+              <Card className="real-estate-card group cursor-pointer overflow-hidden">
+                <CardContent className="p-6 relative">
                   <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-sm font-medium text-gray-600 mb-2">
+                    <div className="flex-1">
+                      <p className="text-sm font-medium text-muted-foreground mb-3">
                         {stat.title}
                       </p>
-                      <div className="flex items-center gap-2">
-                        <span className="text-3xl font-bold text-gray-900">
+                      <div className="flex items-end gap-3 mb-2">
+                        <span className="text-4xl font-bold text-foreground">
                           {stat.value}
                         </span>
-                        <div className="flex items-center gap-1 text-green-600">
+                        <div className="flex items-center gap-1 text-emerald-600 pb-1">
                           <TrendingUp className="h-4 w-4" />
-                          <span className="text-sm font-medium">{stat.change}</span>
+                          <span className="text-sm font-semibold">{stat.change}</span>
                         </div>
                       </div>
-                      <p className="text-xs text-gray-500 mt-1">from last month</p>
+                      <p className="text-xs text-muted-foreground">{stat.description}</p>
                     </div>
-                    <div className={`w-12 h-12 rounded-2xl bg-gradient-to-r ${stat.color} flex items-center justify-center group-hover:scale-110 transition-transform duration-200`}>
-                      <Icon className="h-6 w-6 text-white" />
+                    <div className={`w-16 h-16 rounded-3xl bg-gradient-to-r ${stat.color} flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg`}>
+                      <Icon className="h-8 w-8 text-white" />
                     </div>
                   </div>
+                  <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-transparent via-pulse-500/30 to-transparent"></div>
                 </CardContent>
               </Card>
             </motion.div>
